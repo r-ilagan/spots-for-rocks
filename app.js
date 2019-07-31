@@ -2,10 +2,10 @@ const express = require('express');
 const app = express();
 
 app.set('view engine', 'ejs');
-app.use(express.set('/public'));
+// app.use(express.static('public'));
 
 app.get('/', (req, res) => {
-  res.send('Welcome to the page!');
+  res.render('landing');
 });
 
 app.listen(3000, () => {
