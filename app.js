@@ -2,8 +2,10 @@ const express = require('express');
 const app = express();
 
 app.set('view engine', 'ejs');
+app.set('view options', { delimiter: '?' });
 // app.use(express.static('public'));
 
+// root route
 app.get('/', (req, res) => {
   res.render('landing');
 });
