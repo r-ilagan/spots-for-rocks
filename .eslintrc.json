@@ -13,6 +13,10 @@
   "parserOptions": {
     "ecmaVersion": 2018
   },
-  "rules": {},
+  "rules": {
+    "no-unused-vars": "warn",
+    "import/newline-after-import": "off",
+    "no-console": "off"
+  },
   "plugins": ["prettier"]
 }
