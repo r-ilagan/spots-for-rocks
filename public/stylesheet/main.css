@@ -59,3 +59,11 @@ h3 {
   object-fit: cover;
   height: 440px;
 }
+
+.footer {
+  color: white;
+}
+
+.footer a {
+  color: inherit;
+}
