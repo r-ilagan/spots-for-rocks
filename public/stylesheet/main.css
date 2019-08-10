@@ -44,20 +44,16 @@ h3 {
   padding: 3rem;
 }
 
-.gallery {
-  height: 440px;
-}
-
 .fit-image {
   width: 100%;
   object-fit: cover;
-  height: 220px; /* only if you want fixed height */
+  height: 250px; /* only if you want fixed height */
 }
 
 .gallery .first-img {
   width: 100%;
   object-fit: cover;
-  height: 440px;
+  height: 500px;
 }
 
 .footer {
@@ -66,4 +62,14 @@ h3 {
 
 .footer a {
   color: inherit;
+}
+
+.footer .row hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0;
+  width: 50%;
 }
