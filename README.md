@@ -14,8 +14,6 @@ I am also using Bootstrap 4 and a template engine called EJS to style the site.
 
 ## Features To Be Implemented
 
-- User registration
-- Login
 - Add Places to Visit
 - Verifiable Accounts
 - Likes/Dislikes (Ratings)
@@ -24,3 +22,11 @@ I am also using Bootstrap 4 and a template engine called EJS to style the site.
 - User Profile and Settings
 - Gallery for pictures
 - Popup Login
+
+## Pages
+
+- ~~Landing~~
+- Show Spots
+- Show info about a Spot
+- User registration
+- Login
