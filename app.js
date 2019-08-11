@@ -19,6 +19,11 @@ app.get('/', (req, res) => {
   res.render('landing');
 });
 
+//
+app.get('/spots', (req, res) => {
+  res.render('spots');
+});
+
 app.listen(port, () => {
   console.log('Server has started and listening on port 3000!');
 });
