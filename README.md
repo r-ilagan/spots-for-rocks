@@ -1,6 +1,6 @@
 # Spots for Rocks
 
-A [website](spotsfor.rocks) for finding the perfect place to bring your Pet Rock.
+A [website](http://spotsfor.rocks) for finding the perfect place to bring your Pet Rock.
 
 ---
 
