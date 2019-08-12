@@ -77,3 +77,18 @@ h3 {
   padding: 0;
   width: 50%;
 }
+
+#holder {
+  min-height: 100%;
+  position: relative;
+}
+
+.footer {
+  left: 0;
+  position: absolute;
+  right: 0;
+}
+html,
+body {
+  height: 100%;
+}
