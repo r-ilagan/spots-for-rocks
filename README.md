@@ -6,11 +6,13 @@ A [website](http://spotsfor.rocks) for finding the perfect place to bring your P
 
 This is a side project that I am creating to help me learn and understand how to build a full-stack web application.
 
+Users will be able to register, login, create/edit/delete (that they own) Spots, add/edit/delete comments (that they own), and view Spots.
+
 The stack that I will be using is the MEN (Mongo, Express, Node) stack. In addition, I will also be using ReSTful routes and api to build the application.
 
 The website is hosted on AWS Elastic BeanStalk with a Route 53 domain
 
-Lastly, I am also using Bootstrap 4 and a template engine called EJS to style the site.
+Lastly, I am also using Bootstrap 4 and EJS to style the site.
 
 ---
 
