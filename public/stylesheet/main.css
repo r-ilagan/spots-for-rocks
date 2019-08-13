@@ -2,6 +2,10 @@ html {
   scroll-behavior: smooth;
 }
 
+body {
+  padding-top: 56px;
+}
+
 .section-a {
   margin-top: 2%;
   margin-bottom: 13%;
