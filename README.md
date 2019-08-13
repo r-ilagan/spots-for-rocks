@@ -16,20 +16,20 @@ Lastly, I am also using Bootstrap 4 and a template engine called EJS to style th
 
 ## Features To Be Implemented
 
-:black_square_button: Add Places to Visit
-:black_square_button: Verifiable Accounts
-:black_square_button: Likes/Dislikes (Ratings)
-:black_square_button: Dynamic date on comments and Submissions
-:black_square_button: Comments and replies to comments
-:black_square_button: User Profile and Settings
-:black_square_button: Gallery for pictures
-:black_square_button: Popup Login
-:ballot_box_with_check: Implement https
+- :black_square_button: Add Places to Visit
+- :black_square_button: Verifiable Accounts
+- :black_square_button: Likes/Dislikes (Ratings)
+- :black_square_button: Dynamic date on comments and Submissions
+- :black_square_button: Comments and replies to comments
+- :black_square_button: User Profile and Settings
+- :black_square_button: Gallery for pictures
+- :black_square_button: Popup Login
+- :ballot_box_with_check: Implement https
 
 ## Pages
 
-:ballot_box_with_check: Landing
-:black_square_button: Show Spots
-:black_square_button: Show info about a Spot
-:black_square_button: User registration
-:black_square_button: Login
+- :ballot_box_with_check: Landing
+- :black_square_button: Show Spots
+- :black_square_button: Show info about a Spot
+- :black_square_button: User registration
+- :black_square_button: Login
