@@ -10,7 +10,7 @@ Users will be able to register, login, create/edit/delete (that they own) Spots,
 
 The stack that I will be using is the MEN (Mongo, Express, Node) stack. In addition, I will also be using ReSTful routes and api to build the application.
 
-The website is hosted on AWS Elastic BeanStalk with a Route 53 domain
+The website is hosted on AWS Elastic BeanStalk with a domain taken from Route 53.
 
 Lastly, I am also using Bootstrap 4 and EJS to style the site.
 
