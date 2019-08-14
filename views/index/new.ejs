@@ -6,15 +6,19 @@
   <form action="/spots" method="POST">
     <div class="form-group">
       <label for="author" class="font-weight-bold">Author</label>
-      <input class="form-control" type="text" name="author" autofocus>
+      <input class="form-control" type="text" name="author" autofocus required>
     </div>
     <div class="form-group">
       <label for="image" class="font-weight-bold">Image</label>
-      <input class="form-control" type="text" name="image">
+      <input class="form-control" type="text" name="image" required>
     </div>
     <div class="form-group">
       <label for="description" class="font-weight-bold">Tell Us Your Story</label>
-      <textarea class="form-control" name="description" spellcheck="true"></textarea>
+      <textarea class="form-control" name="description" spellcheck="true" required></textarea>
+    </div>
+    <div class="form-group">
+      <label for="place" class="font-weight-bold">Place</label>
+      <input class="form-control" type="text" name="place" required>
     </div>
     <div class="form-group">
       <input class="btn btn-outline-primary" type="submit" value="Submit">
