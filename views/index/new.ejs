@@ -1,0 +1,25 @@
+<? include ../partials/header ?>
+
+<div class="container">
+  <h1>Create A New Spot!</h1>
+  <hr>
+  <form action="/spots" method="POST">
+    <div class="form-group">
+      <label for="author" class="font-weight-bold">Author</label>
+      <input class="form-control" type="text" name="author" autofocus>
+    </div>
+    <div class="form-group">
+      <label for="image" class="font-weight-bold">Image</label>
+      <input class="form-control" type="text" name="image">
+    </div>
+    <div class="form-group">
+      <label for="description" class="font-weight-bold">Tell Us Your Story</label>
+      <textarea class="form-control" name="description" spellcheck="true"></textarea>
+    </div>
+    <div class="form-group">
+      <input class="btn btn-outline-primary" type="submit" value="Submit">
+    </div>
+  </form>
+</div>
+
+<? include ../partials/footer ?>
