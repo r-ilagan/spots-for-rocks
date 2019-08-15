@@ -52,8 +52,6 @@ app.post('/spots', urlencodedParser, (req, res) => {
     author: author,
     image: image
   };
-  res.redirect('/spots');
-  console.log(newSpot);
   Spots.create(newSpot, err => {
     if (err) {
       console.log(err);
