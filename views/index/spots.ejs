@@ -1,0 +1,35 @@
+<? include ../partials/header ?>
+
+<div class="container">
+  <div class="jumbotron">
+    <span><i class="fas fa-hiking fa-10x"></i></span>
+    <h1>Welcome to the Community</h1>
+    <h2>Found a nice spot?</h2>
+    <a href="/spots/new" class="btn btn-primary">Let us know where!</a>
+  </div>
+
+
+
+
+  <!-- <div class="card-columns"> -->
+  <div class="row">
+    <? spots.forEach( function(spot) {?>
+    <div class="col-md-4">
+      <div class="card h-90 my-3">
+        <img class="card-img-top img-fluid" src="<?= spot.image ?>">
+        <div class="card-body">
+          <h3 class="card-title font-weight-bold text-center"><?= spot.name ?></h3>
+          <hr>
+          <h5 class="card-subtitle mb-3"><?= spot.author ?></h5>
+          <p class="card-text line-clamp"><?= spot.description ?></p>
+          <a href="" class="btn btn-info">More Info</a>
+        </div>
+      </div>
+    </div>
+    <? }); ?>
+  </div>
+  <!-- </div> -->
+
+</div>
+
+<? include ../partials/footer ?>
