@@ -37,3 +37,17 @@ Lastly, I am also using Bootstrap 4 and EJS to style the site.
 - :black_square_button: Show info about a Spot
 - :black_square_button: User registration
 - :black_square_button: Login
+
+---
+
+## ReSTful Routes Cheatsheet for this project
+
+| Route Name | URL             | HTTP Verb | Description                          |
+| :--------: | :-------------- | :-------- | :----------------------------------- |
+|   Index    | /spots          | GET       | display all spots                    |
+|    New     | /spots/new      | GET       | show form to make new spot           |
+|   Create   | /spots          | POST      | add new spot to db then redirect     |
+|    Show    | /spots/:id      | GET       | show info about one spot             |
+|    Edit    | /spots/:id/edit | GET       | show edit form of one spot           |
+|   Update   | /spots/:id      | PUT       | update a specific spot then redirect |
+|  Destroy   | /spots/:id      | DELETE    | delete a specific spot then redirect |
