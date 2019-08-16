@@ -105,21 +105,22 @@ h3 {
 }
 
 /* Spots.ejs */
-.card-deck .card {
-  padding: 0.5rem;
-}
-
-.card-deck img {
+.card img {
   height: 200px;
-}
-
-.card-deck .overflow-text {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
 }
 
 .jumbotron span i {
   float: left;
   padding-right: 1.5rem;
+}
+
+.card .card-body {
+  max-height: 20rem;
+}
+
+.line-clamp {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
 }
