@@ -8,7 +8,7 @@ const Spots = require('./models/spots');
 require('dotenv').config();
 
 const dbUrl = 'mongodb://localhost:27017/spot_for_rocks' || process.env.DB_URL;
-mongoose.connect(process.env.DB_URL, {
+mongoose.connect(dbUrl, {
   useNewUrlParser: true
 });
 
