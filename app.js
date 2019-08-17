@@ -6,7 +6,8 @@ const path = require('path');
 const mongoose = require('mongoose');
 const Spots = require('./models/spots');
 
-mongoose.connect('mongodb://localhost:27017/spot_for_rocks', {
+const dbUrl = 'mongodb://localhost:27017/spot_for_rocks' || process.env.DB_URL;
+mongoose.connect(dbUrl, {
   useNewUrlParser: true
 });
 
