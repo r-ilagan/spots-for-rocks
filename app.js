@@ -7,9 +7,10 @@ const mongoose = require('mongoose');
 const Spots = require('./models/spots');
 require('dotenv').config();
 
-const dbUrl = 'mongodb://localhost:27017/spot_for_rocks' || process.env.DB_URL;
+// const testDB = 'mongodb://localhost:27017/spot_for_rocks';
+const realDB = process.env.DB_URL;
 mongoose
-  .connect(`${dbUrl}`, {
+  .connect(`${realDB}`, {
     useNewUrlParser: true
   })
   .then(() => {
@@ -71,5 +72,5 @@ app.post('/spots', urlencodedParser, (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log('Server has started and listening on port 5000!');
+  console.log('Server has started!');
 });
