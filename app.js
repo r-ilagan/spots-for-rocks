@@ -5,9 +5,10 @@ const app = express();
 const path = require('path');
 const mongoose = require('mongoose');
 const Spots = require('./models/spots');
+require('dotenv').config();
 
 const dbUrl = 'mongodb://localhost:27017/spot_for_rocks' || process.env.DB_URL;
-mongoose.connect(dbUrl, {
+mongoose.connect(process.env.DB_URL, {
   useNewUrlParser: true
 });
 
@@ -18,7 +19,7 @@ app.use(express.static(path.join(__dirname, 'node_modules')));
 app.use(express.json());
 
 const urlencodedParser = express.urlencoded({ extended: false });
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5000;
 
 // root route
 app.get('/', (req, res) => {
@@ -63,5 +64,5 @@ app.post('/spots', urlencodedParser, (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log('Server has started and listening on port 3000!');
+  console.log('Server has started and listening on port 5000!');
 });
