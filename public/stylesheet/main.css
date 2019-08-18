@@ -11,6 +11,10 @@ body {
   padding-top: 56px;
 }
 
+.my-nav-color {
+  background: #2b2b2b !important;
+}
+
 .section-a {
   margin-top: 2%;
   margin-bottom: 13%;
