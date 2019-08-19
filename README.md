@@ -35,6 +35,7 @@ Lastly, I am also using Bootstrap 4 and EJS to style the site.
 - :ballot_box_with_check: Show Spots
 - :ballot_box_with_check: Create Spots
 - :black_square_button: Show info about a Spot
+- :black_square_button: Edit spot
 - :black_square_button: User registration
 - :black_square_button: Login
 
