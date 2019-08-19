@@ -3,17 +3,17 @@ const router = express.Router();
 const spotsController = require('../controller/spots');
 
 // Index route
-router.get('/spots', (req, res) => {
-  spotsController.findSpots(req, res);
+router.get('/', (req, res) => {
+  spotsController.findAllSpots(req, res);
 });
 
 // New route
-router.get('/spots/new', (req, res) => {
+router.get('/new', (req, res) => {
   res.render('index/new');
 });
 
 // Create route
-router.post('/spots', (req, res) => {
+router.post('/', (req, res) => {
   const author = req.body.author;
   const image = req.body.image;
   const place = req.body.place;
@@ -27,4 +27,8 @@ router.post('/spots', (req, res) => {
   spotsController.createSpot(req, res, newSpot);
 });
 
+// Show route
+router.get('/:id', (req, res) => {
+  res.render('index/show');
+});
 module.exports = router;
