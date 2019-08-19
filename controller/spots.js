@@ -1,6 +1,6 @@
 const Spots = require('../models/spots');
 
-module.exports.findSpots = (req, res) => {
+module.exports.findAllSpots = (req, res) => {
   Spots.find({})
     .then(foundSpots => {
       res.render('index/spots', { spots: foundSpots });
@@ -11,11 +11,13 @@ module.exports.findSpots = (req, res) => {
 };
 
 module.exports.createSpot = (req, res, newSpot) => {
-  Spots.create(newSpot, err => {
-    if (err) {
-      console.log(err);
-    } else {
+  Spots.create(newSpot)
+    .then(() => {
       res.redirect('/spots');
-    }
-  });
+    })
+    .catch(err => {
+      console.log(err);
+    });
 };
+
+// module.exports.findSpot = ();
