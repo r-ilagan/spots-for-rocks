@@ -20,4 +20,10 @@ module.exports.createSpot = (req, res, newSpot) => {
     });
 };
 
-// module.exports.findSpot = ();
+module.exports.showSpot = (req, res, id) => {
+  Spots.findById(id)
+    .then(foundSpot => res.render('index/show', { spot: foundSpot }))
+    .catch(err => {
+      console.log(err);
+    });
+};
