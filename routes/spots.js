@@ -29,6 +29,6 @@ router.post('/', (req, res) => {
 
 // Show route
 router.get('/:id', (req, res) => {
-  res.render('index/show');
+  spotsController.showSpot(req, res, req.params.id);
 });
 module.exports = router;
