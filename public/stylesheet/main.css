@@ -117,8 +117,11 @@ textarea {
   white-space: pre-wrap;
 }
 
-.card .index-spot img {
-  height: 200px;
+/* make images smaller based on size of container */
+.container .img-fluid {
+  display: block;
+  width: auto;
+  max-height: 100%;
 }
 
 .shadow {
@@ -135,10 +138,6 @@ textarea {
 .jumbotron span i {
   float: left;
   padding-right: 1.5rem;
-}
-
-#show-card .card-body {
-  max-height: 20rem;
 }
 
 .line-clamp {
