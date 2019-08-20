@@ -9,7 +9,7 @@ require('dotenv').config();
 const testDB = 'mongodb://localhost:27017/spot_for_rocks';
 const realDB = process.env.DB_URL;
 mongoose
-  .connect(`${testDB}`, {
+  .connect(`${realDB}`, {
     useNewUrlParser: true
   })
   .then(() => {
