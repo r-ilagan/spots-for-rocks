@@ -108,6 +108,10 @@ h3 {
   right: 0;
 }
 
+textarea {
+  height: 10rem;
+}
+
 /* Spots.ejs */
 .card .index-spot img {
   height: 200px;
