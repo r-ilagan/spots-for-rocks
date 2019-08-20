@@ -113,6 +113,10 @@ textarea {
 }
 
 /* Spots.ejs */
+.card-text {
+  white-space: pre-wrap;
+}
+
 .card .index-spot img {
   height: 200px;
 }
@@ -133,7 +137,7 @@ textarea {
   padding-right: 1.5rem;
 }
 
-.card .card-body {
+#show-card .card-body {
   max-height: 20rem;
 }
 
