@@ -1,5 +1,16 @@
 <? include ../partials/header ?>
 
-<h1>Show route!</h1>
+<div class="container">
+  <div class="card mb-3" id="show-card">
+    <img src="<?= spot.image ?>" class="img-fluid card-img-top"
+      onerror="this.onerror=null;this.src='../../assets/images/default_img.png';" alt="<?= spot.name ?>">
+    <div class="card-body">
+      <h3 class="font-weight-bold text-capitalize text-center card-title"><?= spot.name ?></h3>
+      <hr>
+      <h4 class="font-weight-bold card-subtitle mb-3"><?= spot.author ?></h4>
+      <p class="card-text"><?= spot.description ?></p>
+    </div>
+  </div>
+</div>
 
 <? include ../partials/footer ?>
