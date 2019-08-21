@@ -9,6 +9,8 @@ require('dotenv').config();
 
 const testDB = 'mongodb://localhost:27017/spot_for_rocks';
 const realDB = process.env.DB_URL;
+
+mongoose.set('useFindAndModify', false);
 mongoose
   .connect(`${realDB}`, {
     useNewUrlParser: true
