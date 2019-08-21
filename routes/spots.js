@@ -42,4 +42,9 @@ router.put('/:id', (req, res) => {
   spotsController.updateSpot(req, res, req.params.id);
 });
 
+// Delete route
+router.delete('/:id', (req, res) => {
+  spotsController.deleteSpot(res, req.params.id);
+});
+
 module.exports = router;
