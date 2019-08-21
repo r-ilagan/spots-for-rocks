@@ -3,12 +3,18 @@
 <div class="container">
   <img src="<?= spot.image ?>" class="img-fluid card-img-top mx-auto d-block"
     onerror="this.onerror=null;this.src='../../assets/images/default_img.jpg';" alt="<?= spot.name ?>">
-  <div class="card mb-3">
+  <div class="card mb-5" id="show-card">
     <div class="card-body">
       <h3 class="font-weight-bold text-capitalize text-center card-title"><?= spot.name ?></h3>
       <hr>
       <h4 class="font-weight-bold card-subtitle mb-3"><?= spot.author ?></h4>
+      <p class="card-text text-muted"><span><i class="far fa-clock"></i></span> <?= spot.createdAt.toDateString() ?></p>
       <p class="card-text"><?= spot.description ?></p>
+      <div class="d-flex">
+        <a href="/spots" class="btn btn-info mr-auto p2">Go Back</a>
+        <a href="/spots/<?= spot._id ?>/edit" class="btn btn-warning p2 mr-2">Edit</a>
+        <a href="" class="btn btn-danger p2">Delete</a>
+      </div>
     </div>
   </div>
 </div>
