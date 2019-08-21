@@ -9,6 +9,9 @@
       <hr>
       <h4 class="font-weight-bold card-subtitle mb-3"><?= spot.author ?></h4>
       <p class="card-text text-muted"><span><i class="far fa-clock"></i></span> <?= spot.createdAt.toDateString() ?></p>
+      <? if(spot.wasUpdated) { ?>
+      <p class="card-text text-muted ">Last updated: <?= spot.updatedAt.toDateString()?></p>
+      <? } ?>
       <p class="card-text"><?= spot.description ?></p>
       <div class="d-flex">
         <a href="/spots" class="btn btn-info mr-auto p2">Go Back</a>
