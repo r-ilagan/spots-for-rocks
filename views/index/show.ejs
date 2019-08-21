@@ -16,7 +16,9 @@
       <div class="d-flex">
         <a href="/spots" class="btn btn-info mr-auto p2">Go Back</a>
         <a href="/spots/<?= spot._id ?>/edit" class="btn btn-warning p2 mr-2">Edit</a>
-        <a href="" class="btn btn-danger p2">Delete</a>
+        <form action="/spots/<?= spot._id ?>/?_method=DELETE" method="POST">
+          <input type="submit" class="btn btn-danger p2" value="Delete">
+        </form>
       </div>
     </div>
   </div>

@@ -52,3 +52,14 @@ module.exports.updateSpot = (req, res, id) => {
       console.log(err);
     });
 };
+
+module.exports.deleteSpot = (res, id) => {
+  Spots.findByIdAndRemove(id)
+    .exec()
+    .then(() => {
+      res.redirect('/spots');
+    })
+    .catch(err => {
+      console.log(err);
+    });
+};
