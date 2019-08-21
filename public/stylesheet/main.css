@@ -117,8 +117,11 @@ textarea {
   white-space: pre-wrap;
 }
 
-.card .index-spot img {
-  height: 200px;
+/* make images smaller based on size of container */
+.container .img-fluid {
+  display: block;
+  width: auto;
+  max-height: 100%;
 }
 
 .shadow {
@@ -137,13 +140,13 @@ textarea {
   padding-right: 1.5rem;
 }
 
-#show-card .card-body {
-  max-height: 20rem;
-}
-
 .line-clamp {
   overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
+}
+
+#show-card {
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
 }

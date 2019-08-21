@@ -9,17 +9,19 @@
   </div>
 
   <div class="row">
-    <? spots.forEach( function(spot) {?>
+    <? spots.forEach( spot => {?>
     <div class="col-md-4">
       <div class="card h-90 my-3 shadow">
-        <img class="card-img-top img-fluid index-spot"
-          onerror="this.onerror=null;this.src='../../assets/images/default_img.png';" src="<?= spot.image ?>"
-          alt="<?= spot.name ?>">
         <div class="card-body">
           <h3 class="card-title font-weight-bold text-center"><?= spot.name ?></h3>
           <hr>
-          <h4 class="card-subtitle mb-3"><?= spot.author ?></h4>
-          <p class="card-text line-clamp"><?= spot.description ?></p>
+          <h4 class="card-subtitle mb-1"><span><i class="far fa-user"></i></span> <?= spot.author ?></h4>
+          <p class="card-text text-muted"><span><i class="far fa-clock"></i></span> <?= spot.createdAt.toDateString()?>
+          </p>
+          <img class="card-img-top img-fluid mx-auto d-block"
+            onerror="this.onerror=null;this.src='../../assets/images/default_img.jpg';" src="<?= spot.image ?>"
+            alt="<?= spot.name ?>">
+          <p class="card-text line-clamp mt-2"><?= spot.description ?></p>
           <a href="/spots/<?= spot._id ?>" class="btn btn-info">More Info</a>
         </div>
       </div>

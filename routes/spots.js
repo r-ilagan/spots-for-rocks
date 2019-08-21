@@ -24,11 +24,22 @@ router.post('/', (req, res) => {
     author: author,
     image: image
   };
-  spotsController.createSpot(req, res, newSpot);
+  spotsController.createSpot(res, newSpot);
 });
 
 // Show route
 router.get('/:id', (req, res) => {
-  spotsController.showSpot(req, res, req.params.id);
+  spotsController.showSpot(res, req.params.id);
 });
+
+// Edit route
+router.get('/:id/edit', (req, res) => {
+  spotsController.editSpot(res, req.params.id);
+});
+
+// Update route
+router.put('/:id', (req, res) => {
+  spotsController.updateSpot(req, res, req.params.id);
+});
+
 module.exports = router;
