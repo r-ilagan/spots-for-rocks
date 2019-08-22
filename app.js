@@ -32,7 +32,7 @@ app.use(express.json());
 app.use(methodOverride('_method'));
 
 // Routes
-app.use(indexRoutes);
+app.use('/', indexRoutes);
 app.use('/spots', spotRoutes);
 app.use('/spots/:id/comments', commentRoutes);
 
