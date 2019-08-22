@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const methodOverride = require('method-override');
 const indexRoutes = require('./routes/index');
 const spotRoutes = require('./routes/spots');
+const commentRoutes = require('./routes/comments');
 const app = express();
 require('dotenv').config();
 
@@ -33,6 +34,7 @@ app.use(methodOverride('_method'));
 // Routes
 app.use(indexRoutes);
 app.use('/spots', spotRoutes);
+app.use('/spots/:id/comments', commentRoutes);
 
 const port = process.env.PORT || 3000;
 
