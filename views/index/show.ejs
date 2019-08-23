@@ -24,8 +24,19 @@
   </div>
 
   <div class="container border mb-3">
-    <h4 class="mt-1">Comments</h4>
-    <a href="/spots/<?= spot._id ?>/comments/new" class="btn btn-success btn-sm mb-1">Add Comment</a>
+    <a href="/spots/<?= spot._id ?>/comments/new" class="btn btn-success btn-sm my-3">Add Comment</a>
+
+    <div class="container mb-3">
+      <ul class="list-group">
+        <? spot.comment.forEach( comment => { ?>
+        <li class="list-group-item">
+          <h5 class="font-weight-bold"><?= comment.author ?></h5>
+          <p class="text-muted"><?= comment.createdAt.toDateString() ?></p>
+          <p class="comments"><?= comment.text ?></p>
+        </li>
+        <? }) ?>
+      </ul>
+    </div>
   </div>
 </div>
 
