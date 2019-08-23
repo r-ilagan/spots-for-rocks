@@ -22,9 +22,9 @@ module.exports.createComment = (req, res) => {
         spot.comment.push(comment);
         spot
           .save()
+          .then(() => res.redirect(`/spots/${req.params.id}`))
           .catch(err => console.log('Saving spot with comment: ', err.message));
       });
-      res.redirect(`/spots/${req.params.id}`);
     })
     .catch(err => console.log(err.message));
 };
