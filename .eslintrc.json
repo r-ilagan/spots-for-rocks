@@ -18,7 +18,8 @@
     "import/newline-after-import": "off",
     "no-console": "off",
     "object-shorthand": "off",
-    "prefer-destructuring": "off"
+    "prefer-destructuring": "off",
+    "no-param-reassign": "off"
   },
   "plugins": ["prettier"]
 }
