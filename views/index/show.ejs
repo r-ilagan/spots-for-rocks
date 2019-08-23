@@ -30,9 +30,14 @@
       <ul class="list-group">
         <? spot.comment.forEach( comment => { ?>
         <li class="list-group-item">
-          <h5 class="font-weight-bold"><?= comment.author ?></h5>
+          <h5 class="font-weight-bold mr-auto"><?= comment.author ?></h5>
           <p class="text-muted"><?= comment.createdAt.toDateString() ?></p>
           <p class="comments"><?= comment.text ?></p>
+
+          <div class="d-flex">
+            <a href="" class="btn btn-warning mr-2">Edit</a>
+            <a href="" class="btn btn-danger">Delete</a>
+          </div>
         </li>
         <? }) ?>
       </ul>
