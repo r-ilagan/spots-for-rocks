@@ -22,7 +22,10 @@ module.exports.createSpot = (res, newSpot) => {
 
 module.exports.showSpot = (res, id) => {
   Spots.findById(id)
+    .populate('comment')
+    .exec()
     .then(foundSpot => {
+      console.log(foundSpot);
       res.render('index/show', { spot: foundSpot });
     })
     .catch(err => {

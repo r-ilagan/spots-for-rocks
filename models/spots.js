@@ -6,8 +6,8 @@ const spotSchema = new mongoose.Schema(
     description: String,
     author: String,
     image: String,
-    wasUpdated: Boolean
-    // comment: [String]
+    wasUpdated: Boolean,
+    comment: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Comment' }]
   },
   { timestamps: true }
 );
