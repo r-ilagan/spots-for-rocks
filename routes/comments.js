@@ -12,4 +12,14 @@ router.post('/', (req, res) => {
   commentController.createComment(req, res);
 });
 
+// Edit route
+router.get('/:comment_id/edit', (req, res) => {
+  commentController.editComment(req, res);
+});
+
+// Update route
+router.put('/:comment_id', (req, res) => {
+  commentController.updateComment(req, res);
+});
+
 module.exports = router;
