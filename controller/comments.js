@@ -28,3 +28,17 @@ module.exports.createComment = (req, res) => {
     })
     .catch(err => console.log(err.message));
 };
+
+module.exports.editComment = (req, res) => {
+  Spot.findById(req.params.id)
+    .then(spot =>
+      Comment.findById(req.params.comment_id)
+        .then(comment => {
+          res.render('comments/edit', { spot: spot, comment: comment });
+        })
+        .catch(err =>
+          console.log('Editing comment (find comment): ', err.message)
+        )
+    )
+    .catch(err => console.log('Editing comment (find spot): ', err.message));
+};
