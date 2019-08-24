@@ -25,7 +25,6 @@ module.exports.showSpot = (res, id) => {
     .populate('comment')
     .exec()
     .then(foundSpot => {
-      console.log(foundSpot);
       res.render('index/show', { spot: foundSpot });
     })
     .catch(err => {
