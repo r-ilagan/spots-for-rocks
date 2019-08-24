@@ -31,10 +31,12 @@
         <? spot.comment.forEach( comment => { ?>
         <li class="list-group-item">
           <h5 class="font-weight-bold mr-auto"><?= comment.author ?></h5>
-          <p class="text-muted"><?= comment.createdAt.toDateString() ?></p>
-          <? if(comment.wasEdited){ ?>
-          <p class="text-muted font-italic">(Edited)</p>
-          <? } ?>
+          <div class="d-flex">
+            <p class="text-muted mr-2 h6"><?= comment.createdAt.toDateString() ?></p>
+            <? if(comment.wasEdited){ ?>
+            <p class="text-muted font-italic h6">(Edited)</p>
+            <? } ?>
+          </div>
           <p class="comments"><?= comment.text ?></p>
 
           <div class="d-flex">
