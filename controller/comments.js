@@ -44,15 +44,18 @@ module.exports.editComment = (req, res) => {
 };
 
 module.exports.updateComment = (req, res) => {
-  Spot.findById(req.params.id)
-    .then(() => {
-      Comment.findByIdAndUpdate(req.params.comment_id, {
-        author: req.body.author,
-        text: req.body.text,
-        wasEdited: true
-      })
-        .exec()
-        .then(() => res.redirect(`/spots/${req.params.id}`));
-    })
-    .catch(err => console.log('Updating comment (spot): ', err.message));
+  Comment.findByIdAndUpdate(req.params.comment_id, {
+    author: req.body.author,
+    text: req.body.text,
+    wasEdited: true
+  })
+    .exec()
+    .then(() => res.redirect(`/spots/${req.params.id}`))
+    .catch(err => console.log('Update comment: ', err.message));
+};
+
+module.exports.deleteComment = (req, res) => {
+  Comment.findByIdAndRemove(req.params.comment_id)
+    .then(() => res.redirect(`/spots/${req.params.id}`))
+    .catch(err => console.log('Deleting commment: ', err.message));
 };
