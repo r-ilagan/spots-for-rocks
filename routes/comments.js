@@ -22,4 +22,9 @@ router.put('/:comment_id', (req, res) => {
   commentController.updateComment(req, res);
 });
 
+// Delete route
+router.delete('/:comment_id', (req, res) => {
+  commentController.deleteComment(req, res);
+});
+
 module.exports = router;
