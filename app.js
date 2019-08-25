@@ -3,9 +3,12 @@ const session = require('express-session');
 const path = require('path');
 const mongoose = require('mongoose');
 const methodOverride = require('method-override');
+const passport = require('passport');
+const LocalStrategy = require('passport-local');
 const indexRoutes = require('./routes/index');
 const spotRoutes = require('./routes/spots');
 const commentRoutes = require('./routes/comments');
+const User = require('./models/users');
 
 const app = express();
 require('dotenv').config();
@@ -19,12 +22,8 @@ mongoose
   .connect(`${realDB}`, {
     useNewUrlParser: true
   })
-  .then(() => {
-    console.log('connected to db!');
-  })
-  .catch(err => {
-    console.log('Error: ', err.message);
-  });
+  .then(() => console.log('connected to db!'))
+  .catch(err => console.log('Error: ', err.message));
 
 // EJS
 app.set('view engine', 'ejs');
@@ -51,6 +50,13 @@ app.use(
     cookie: { secure: true }
   })
 );
+
+// Passport
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 
 // Routes
 app.use('/', indexRoutes);
