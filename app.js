@@ -15,7 +15,7 @@ const realDB = process.env.DB_URL;
 
 mongoose.set('useFindAndModify', false);
 mongoose
-  .connect(`${realDB}`, {
+  .connect(`${testDB}`, {
     useNewUrlParser: true
   })
   .then(() => {
