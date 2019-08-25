@@ -13,9 +13,10 @@ require('dotenv').config();
 const testDB = 'mongodb://localhost:27017/spot_for_rocks';
 const realDB = process.env.DB_URL;
 
+// Mongoose
 mongoose.set('useFindAndModify', false);
 mongoose
-  .connect(`${testDB}`, {
+  .connect(`${realDB}`, {
     useNewUrlParser: true
   })
   .then(() => {
@@ -25,14 +26,22 @@ mongoose
     console.log('Error: ', err.message);
   });
 
+// EJS
 app.set('view engine', 'ejs');
 app.set('view options', { delimiter: '?' });
+
+// Path
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'node_modules')));
+
+// BodyParser
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+
+// Method-override
 app.use(methodOverride('_method'));
 
+// Express-session
 app.set('trust proxy', 1);
 app.use(
   session({
