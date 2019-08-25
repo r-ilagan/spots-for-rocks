@@ -1,10 +1,12 @@
 const express = require('express');
+const session = require('express-session');
 const path = require('path');
 const mongoose = require('mongoose');
 const methodOverride = require('method-override');
 const indexRoutes = require('./routes/index');
 const spotRoutes = require('./routes/spots');
 const commentRoutes = require('./routes/comments');
+
 const app = express();
 require('dotenv').config();
 
@@ -30,6 +32,16 @@ app.use(express.static(path.join(__dirname, 'node_modules')));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(methodOverride('_method'));
+
+app.set('trust proxy', 1);
+app.use(
+  session({
+    secret: `${process.env.SECRET_KEY}`,
+    resave: false,
+    saveUninitialized: false,
+    cookie: { secure: true }
+  })
+);
 
 // Routes
 app.use('/', indexRoutes);
