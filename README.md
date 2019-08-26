@@ -29,6 +29,7 @@ Lastly, I am also using Bootstrap 4 and EJS to style the site.
 - :black_square_button: Gallery for pictures
 - :black_square_button: Popup Login
 - :black_square_button: Handle Errors
+- :black_square_button: Proper Regex for email signup
 
 ## Pages
 
