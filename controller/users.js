@@ -37,27 +37,32 @@ userController.createUser = (errors, email, username, password, req, res) => {
       password
     });
   } else {
-    // Validation and registration
-    const user = new User({
-      username,
-      email: email
-    });
-    User.register(user, password)
-      .then(account => {
-        console.log(account);
-        passport.authenticate('local')(req, res, () => {
-          res.redirect('/spots');
+    // Check if user exists
+    User.findOne({ email: email }).then(account => {
+      if (!account) {
+        // Validation and registration
+        const user = new User({
+          username,
+          email: email
         });
-      })
-      .catch(err => {
-        errors.push({ msg: err.message });
+        User.register(user, password)
+          .then(newAccount => {
+            console.log(newAccount);
+            passport.authenticate('local')(req, res, () => {
+              res.redirect('/spots');
+            });
+          })
+          .catch(err => console.log(err.message));
+      } else {
+        errors.push({ msg: 'Email already exists' });
         res.render('auth/register', {
           errors,
           email,
           username,
           password
         });
-      });
+      }
+    });
   }
 };
 
