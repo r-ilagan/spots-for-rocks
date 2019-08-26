@@ -1,4 +1,5 @@
 const express = require('express');
+const passport = require('passport');
 const User = require('../models/users');
 
 const router = express.Router();
@@ -43,13 +44,30 @@ router.post('/', (req, res) => {
       errors,
       email,
       username,
-      password,
-      password2
+      password
     });
   } else {
-    res.send('pass');
+    // Validation and registration
+    const user = new User({
+      username,
+      email: email
+    });
+    User.register(user, password)
+      .then(account => {
+        console.log(account);
+        passport.authenticate('local')(req, res, () => {
+          res.redirect('/spots');
+        });
+      })
+      .catch(err => {
+        errors.push({ msg: err.message });
+        res.render('auth/register', {
+          errors,
+          email,
+          username,
+          password
+        });
+      });
   }
-
-  // res.send(req.body);
 });
 module.exports = router;
