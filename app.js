@@ -8,6 +8,7 @@ const LocalStrategy = require('passport-local');
 const indexRoutes = require('./routes/index');
 const spotRoutes = require('./routes/spots');
 const commentRoutes = require('./routes/comments');
+const userRoutes = require('./routes/users');
 const User = require('./models/users');
 
 const app = express();
@@ -62,6 +63,7 @@ passport.deserializeUser(User.deserializeUser());
 app.use('/', indexRoutes);
 app.use('/spots', spotRoutes);
 app.use('/spots/:id/comments', commentRoutes);
+app.use('/users', userRoutes);
 
 const port = process.env.PORT || 3000;
 
