@@ -2,35 +2,37 @@
 
 <div class="row mt-5">
   <div class="col-md-6 m-auto">
-    <!-- <h1 class="text-center mt-n5"><i class="fas fa-user-plus "></i></h1> -->
     <div class="card card-body" id="register-card">
       <i class="fas fa-user-circle text-center fa-5x" id="register-icon"></i>
-      <h1 class="text-center mt-2">
-        Register
-      </h1>
+      <h1 class="text-center mt-2">Register</h1>
+
+      <? include ../partials/messages ?>
+
       <form action="/users" method="POST">
         <div class="form-group">
           <label for="email" class="font-weight-bold">Email</label>
-          <input type="text" name="email" class="form-control" title="Enter your email" required>
+          <input type="text" name="email" class="form-control" title="Enter your email"
+            value="<?= typeof email !== 'undefined' ? email : ''?>">
+          <small class="text-muted">For verification purposes only</small>
         </div>
         <div class="form-group">
           <label for="username" class="font-weight-bold">Username</label>
           <input type="text" name="username" class="form-control" minlength="4" maxlength="12" title="Enter a username"
-            required>
-          <small class="text-muted">minimum length of 4 and max 12</small>
+            value="<?= typeof username !== 'undefined' ? username : ''?>">
+          <small class="text-muted">Minimum length of 4 and max 12</small>
         </div>
         <div class="form-group">
           <label for="password" class="font-weight-bold">Password</label>
-          <input type="password" name="password" class="form-control" minlength="6" title="Never use password123"
-            required>
-          <small class="text-muted">minimum length of 6</small>
+          <input type="password" name="password" class="form-control" minlength="6" pattern=".{6,}"
+            title="Never use password123" value="<?= typeof password !== 'undefined' ? password : ''?>">
+          <small class="text-muted">Minimum length of 6</small>
         </div>
         <div class="form-group">
-          <label for="password2" class="font-weight-bold">Enter Password Again</label>
-          <input type="password" name="password2" class="form-control" minlength="6" title="Enter your password again"
-            required>
+          <label for="password2" class="font-weight-bold">Confirm Password</label>
+          <input type="password" name="password2" class="form-control" minlength="6" pattern=".{6,}"
+            title="Enter your password again" value="<?= typeof password2 !== 'undefined' ? password2 : ''?>">
         </div>
-        <input type="submit" value="Submit" class="btn btn-success">
+        <input type="submit" value="Register" class="btn btn-success">
       </form>
       <small class="text-center">Have an account already?
         <a href="/users/login" class="badge badge-primary">Login</a>
