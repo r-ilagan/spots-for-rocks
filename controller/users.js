@@ -46,10 +46,9 @@ userController.createUser = (errors, email, username, password, req, res) => {
           email: email
         });
         User.register(user, password)
-          .then(newAccount => {
-            console.log(newAccount);
+          .then(() => {
             passport.authenticate('local')(req, res, () => {
-              res.redirect('/spots');
+              res.redirect('/users/login');
             });
           })
           .catch(err => console.log(err.message));
