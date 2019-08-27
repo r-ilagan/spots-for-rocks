@@ -1,14 +1,16 @@
 const express = require('express');
 const router = express.Router();
 const spotsController = require('../controller/spots');
+const middleware = require('../middlewares/index');
 
 // Index route
 router.get('/', (req, res) => {
+  console.log(req.user);
   spotsController.findAllSpots(req, res);
 });
 
 // New route
-router.get('/new', (req, res) => {
+router.get('/new', middleware.isLoggedIn, (req, res) => {
   res.render('index/new');
 });
 
