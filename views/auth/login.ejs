@@ -16,12 +16,12 @@
         <div class="form-group">
           <label for="password" class="font-weight-bold">Password</label>
           <input type="password" name="password" class="form-control" minlength="6" pattern=".{6,}"
-            title="Never use password123" value="<?= typeof password !== 'undefined' ? password : ''?>">
+            title="Emter your password">
         </div>
         <input type="submit" value="Sign in" class="btn btn-primary">
       </form>
       <small class="text-center">Don't have an account?
-        <a href="/users/login" class="badge badge-success">Register</a>
+        <a href="/users/register" class="badge badge-success">Register</a>
       </small>
     </div>
   </div>
