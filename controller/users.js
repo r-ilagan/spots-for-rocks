@@ -49,10 +49,10 @@ userController.createUser = (errors, email, username, password, req, res) => {
           .then(() => {
             passport.authenticate('local')(req, res, () => {
               req.flash(
-                'success_msg',
+                'success',
                 'You are now registered! Be sure to validate your email address.'
               );
-              res.redirect('/users/login');
+              res.redirect('/spots');
             });
           })
           .catch(err => {
