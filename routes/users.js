@@ -24,12 +24,19 @@ router.post('/', (req, res) => {
 });
 
 // Login route
-router.post('/login', (req, res, next) => {
+router.post(
+  '/login',
   passport.authenticate('local', {
     successRedirect: '/spots',
     failureRedirect: '/users/login',
     failureFlash: true
-  })(req, res, next);
+  })
+);
+
+// Logout route
+router.get('/logout', (req, res) => {
+  req.logout();
+  res.redirect('/users/login');
 });
 
 module.exports = router;
