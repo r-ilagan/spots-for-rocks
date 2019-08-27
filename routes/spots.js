@@ -15,8 +15,8 @@ router.get('/new', middleware.isLoggedIn, (req, res) => {
 });
 
 // Create route
-router.post('/', (req, res) => {
-  const author = req.body.author;
+router.post('/', middleware.isLoggedIn, (req, res) => {
+  const author = req.user;
   const image = req.body.image;
   const place = req.body.place;
   const description = req.body.description;
@@ -35,17 +35,17 @@ router.get('/:id', (req, res) => {
 });
 
 // Edit route
-router.get('/:id/edit', (req, res) => {
+router.get('/:id/edit', middleware.isLoggedIn, (req, res) => {
   spotsController.editSpot(res, req.params.id);
 });
 
 // Update route
-router.put('/:id', (req, res) => {
+router.put('/:id', middleware.isLoggedIn, (req, res) => {
   spotsController.updateSpot(req, res, req.params.id);
 });
 
 // Delete route
-router.delete('/:id', (req, res) => {
+router.delete('/:id', middleware.isLoggedIn, (req, res) => {
   spotsController.deleteSpot(res, req.params.id);
 });
 
