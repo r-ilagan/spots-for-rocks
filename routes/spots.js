@@ -5,7 +5,6 @@ const middleware = require('../middlewares/index');
 
 // Index route
 router.get('/', (req, res) => {
-  console.log(req.user);
   spotsController.findAllSpots(req, res);
 });
 
