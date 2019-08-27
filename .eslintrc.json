@@ -19,7 +19,8 @@
     "no-console": "off",
     "object-shorthand": "off",
     "prefer-destructuring": "off",
-    "no-param-reassign": "off"
+    "no-param-reassign": "off",
+    "no-underscore-dangle": "off"
   },
   "plugins": ["prettier"]
 }

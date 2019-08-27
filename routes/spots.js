@@ -5,7 +5,6 @@ const middleware = require('../middlewares/index');
 
 // Index route
 router.get('/', (req, res) => {
-  console.log(req.user);
   spotsController.findAllSpots(req, res);
 });
 
@@ -15,8 +14,9 @@ router.get('/new', middleware.isLoggedIn, (req, res) => {
 });
 
 // Create route
-router.post('/', (req, res) => {
-  const author = req.body.author;
+router.post('/', middleware.isLoggedIn, (req, res) => {
+  // eslint-disable-next-line no-underscore-dangle
+  const author = { id: req.user._id, username: req.user.username };
   const image = req.body.image;
   const place = req.body.place;
   const description = req.body.description;
@@ -35,17 +35,17 @@ router.get('/:id', (req, res) => {
 });
 
 // Edit route
-router.get('/:id/edit', (req, res) => {
+router.get('/:id/edit', middleware.checkSpotOwnership, (req, res) => {
   spotsController.editSpot(res, req.params.id);
 });
 
 // Update route
-router.put('/:id', (req, res) => {
+router.put('/:id', middleware.checkSpotOwnership, (req, res) => {
   spotsController.updateSpot(req, res, req.params.id);
 });
 
 // Delete route
-router.delete('/:id', (req, res) => {
+router.delete('/:id', middleware.checkSpotOwnership, (req, res) => {
   spotsController.deleteSpot(res, req.params.id);
 });
 

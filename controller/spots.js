@@ -42,7 +42,6 @@ module.exports.updateSpot = (req, res, id) => {
   Spots.findByIdAndUpdate(id, {
     name: req.body.place,
     description: req.body.description,
-    author: req.body.author,
     image: req.body.image,
     wasUpdated: true
   })

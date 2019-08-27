@@ -6,7 +6,7 @@
     <div class="card-body">
       <h3 class="card-title font-weight-bold text-center"><?= spot.name ?></h3>
       <hr>
-      <h4 class="card-subtitle mb-1"><span><i class="far fa-user"></i></span> <?= spot.author ?></h4>
+      <h4 class="card-subtitle mb-1"><span><i class="far fa-user"></i></span> <?= spot.author.username ?></h4>
       <p class="card-text text-muted"><span><i class="far fa-clock"></i></span> <?= spot.createdAt.toDateString()?>
       </p>
       <img class="card-img-top img-fluid mx-auto d-block"
@@ -17,10 +17,6 @@
   </div>
   <hr>
   <form action="/spots/<?= spot._id ?>/comments" method="POST">
-    <div class="form-group">
-      <label for="name" class="font-weight-bold">Username</label>
-      <input type="text" name="author" class="form-control" required>
-    </div>
     <div class="form-group">
       <label for="name" class="font-weight-bold">Message</label>
       <textarea name="text" class="form-control" required></textarea>

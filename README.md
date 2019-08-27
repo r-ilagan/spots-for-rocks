@@ -28,8 +28,7 @@ Lastly, I am also using Bootstrap 4 and EJS to style the site.
 - :black_square_button: User Profile and Settings
 - :black_square_button: Gallery for pictures
 - :black_square_button: Popup Login
-- :black_square_button: Handle Errors
-- :black_square_button: Proper Regex for email signup
+- :black_square_button: Flash Errors
 
 ## Pages
 
@@ -38,8 +37,8 @@ Lastly, I am also using Bootstrap 4 and EJS to style the site.
 - :ballot_box_with_check: Create Spots
 - :ballot_box_with_check: Show info about a Spot
 - :ballot_box_with_check: Edit spot
-- :black_square_button: User registration
-- :black_square_button: Login
+- :ballot_box_with_check: User registration
+- :ballot_box_with_check: Login
 
 ---
 
