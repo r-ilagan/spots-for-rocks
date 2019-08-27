@@ -14,8 +14,7 @@ module.exports.createComment = (req, res) => {
       const promise = Comment.create(req.body);
       promise.then(comment => {
         comment.text = req.body.text;
-        comment.author = req.body.author;
-        console.log(comment);
+        comment.author = { id: req.user._id, username: req.user.username };
         comment
           .save()
           .catch(err => console.log('Saving comment: ', err.message));
