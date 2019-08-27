@@ -1,4 +1,5 @@
 const express = require('express');
+const flash = require('connect-flash');
 const session = require('express-session');
 const path = require('path');
 const mongoose = require('mongoose');
@@ -20,7 +21,7 @@ const realDB = process.env.DB_URL;
 // Mongoose
 mongoose.set('useFindAndModify', false);
 mongoose
-  .connect(`${realDB}`, {
+  .connect(`${testDB}`, {
     useNewUrlParser: true,
     useCreateIndex: true
   })
@@ -52,6 +53,9 @@ app.use(
     cookie: { secure: true }
   })
 );
+
+// Connect-Flash
+app.use(flash());
 
 // Passport
 app.use(passport.initialize());
