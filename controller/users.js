@@ -48,10 +48,22 @@ userController.createUser = (errors, email, username, password, req, res) => {
         User.register(user, password)
           .then(() => {
             passport.authenticate('local')(req, res, () => {
+              req.flash(
+                'success_msg',
+                'You are now registered! Be sure to validate your email address.'
+              );
               res.redirect('/users/login');
             });
           })
-          .catch(err => console.log(err.message));
+          .catch(err => {
+            errors.push({ msg: err.message });
+            res.render('auth/register', {
+              errors,
+              email,
+              username,
+              password
+            });
+          });
       } else {
         errors.push({ msg: 'Email already exists' });
         res.render('auth/register', {
