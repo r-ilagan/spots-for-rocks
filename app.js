@@ -57,6 +57,13 @@ app.use(
 // Connect-Flash
 app.use(flash());
 
+// Passport
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
 // Global Vars
 app.use((req, res, next) => {
   res.locals.currentUser = req.user;
@@ -65,13 +72,6 @@ app.use((req, res, next) => {
   res.locals.success_msg = req.flash('success_msg');
   next();
 });
-
-// Passport
-app.use(passport.initialize());
-app.use(passport.session());
-passport.use(new LocalStrategy(User.authenticate()));
-passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
 
 // Routes
 app.use('/', indexRoutes);
