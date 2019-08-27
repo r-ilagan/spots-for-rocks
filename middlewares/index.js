@@ -20,15 +20,38 @@ middleware.checkSpotOwnership = (req, res, next) => {
           req.flash('error', 'Spot not found!');
           return res.redirect('back');
         }
-        // eslint-disable-next-line no-underscore-dangle
         if (spot.author.id.equals(req.user._id)) {
           next();
         } else {
           res.redirect('back');
         }
       })
-      .catch(err => console.log(err));
+      .catch(err => req.flash('error', err.message));
+  } else {
+    req.flash('error', 'You need to be logged to create a Spot.');
+    res.redirect('back');
   }
 };
 
+middleware.checkCommentOwnership = (req, res, next) => {
+  if (req.isAuthenticated()) {
+    Comment.findById(req.params.comment_id)
+      .then(comment => {
+        if (!comment) {
+          req.flash('error', 'Comment does not exist.');
+          return res.redirect('back');
+        }
+        if (comment.author.id.equals(req.user._id)) {
+          next();
+        } else {
+          req.flash('error', 'You do not have permission to do that.');
+          res.redirect('back');
+        }
+      })
+      .catch(err => req.flash('error', err.message));
+  } else {
+    req.flash('error', 'You need to be logged to comment.');
+    res.redirect('back');
+  }
+};
 module.exports = middleware;
