@@ -1,9 +1,10 @@
 const express = require('express');
 const commentController = require('../controller/comments');
+const middleware = require('../middlewares/index');
 const router = express.Router({ mergeParams: true });
 
 // New route
-router.get('/new', (req, res) => {
+router.get('/new', middleware.isLoggedIn, (req, res) => {
   commentController.newForm(req, res);
 });
 

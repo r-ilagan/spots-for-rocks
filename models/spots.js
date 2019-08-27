@@ -4,7 +4,7 @@ const spotSchema = new mongoose.Schema(
   {
     name: String,
     description: String,
-    author: String,
+    author: { type: mongoose.Schema.Types.ObjectId, ref: 'Users' },
     image: String,
     wasUpdated: Boolean,
     comment: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Comment' }]
