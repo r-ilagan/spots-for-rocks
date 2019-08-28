@@ -1,6 +1,9 @@
 <? include ../partials/header ?>
 
 <div class="container">
+
+  <? include ../partials/messages ?>
+
   <img src="<?= spot.image ?>" class="img-fluid card-img-top mx-auto d-block"
     onerror="this.onerror=null;this.src='../../assets/images/default_img.jpg';" alt="<?= spot.name ?>">
   <div class="card mb-5" id="show-card">
