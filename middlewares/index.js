@@ -8,7 +8,7 @@ middleware.isLoggedIn = (req, res, next) => {
   if (req.isAuthenticated()) {
     return next();
   }
-  req.flash('error', 'Please, login first before you can create a spot.');
+  req.flash('warn', 'Please, login first before you can create a spot.');
   return res.redirect('/users/login');
 };
 
@@ -28,7 +28,7 @@ middleware.checkSpotOwnership = (req, res, next) => {
       })
       .catch(err => req.flash('error', err.message));
   } else {
-    req.flash('error', 'You need to be logged to create a Spot.');
+    req.flash('warn', 'You need to be logged to create a Spot.');
     res.redirect('back');
   }
 };
@@ -50,7 +50,7 @@ middleware.checkCommentOwnership = (req, res, next) => {
       })
       .catch(err => req.flash('error', err.message));
   } else {
-    req.flash('error', 'You need to be logged to comment.');
+    req.flash('warn', 'You need to be logged to comment.');
     res.redirect('back');
   }
 };
