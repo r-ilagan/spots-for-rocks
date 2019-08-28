@@ -6,21 +6,24 @@ module.exports.findAllSpots = (req, res) => {
       res.render('index/spots', { spots: foundSpots });
     })
     .catch(err => {
-      console.log(err.message);
+      req.flash('error', err.message);
+      res.redirect('/spots');
     });
 };
 
-module.exports.createSpot = (res, newSpot) => {
+module.exports.createSpot = (req, res, newSpot) => {
   Spots.create(newSpot)
     .then(() => {
+      req.flash('success', 'New Spot created successfully.');
       res.redirect('/spots');
     })
     .catch(err => {
-      console.log(err);
+      req.flash('error', err.message);
+      res.redirect('/spots');
     });
 };
 
-module.exports.showSpot = (res, id) => {
+module.exports.showSpot = (req, res, id) => {
   Spots.findById(id)
     .populate('comment')
     .exec()
@@ -28,14 +31,24 @@ module.exports.showSpot = (res, id) => {
       res.render('index/show', { spot: foundSpot });
     })
     .catch(err => {
-      console.log(err);
+      req.flash('error', err.message);
+      res.redirect('/spots');
     });
 };
 
-module.exports.editSpot = (res, id) => {
-  Spots.findById(id).then(foundSpot => {
-    res.render('index/edit', { spot: foundSpot });
-  });
+module.exports.editSpot = (req, res, id) => {
+  Spots.findById(id)
+    .then(foundSpot => {
+      if (!foundSpot) {
+        req.flash('error', 'The spot you are looking for does not exist.');
+        return res.redirect('back');
+      }
+      res.render('index/edit', { spot: foundSpot });
+    })
+    .catch(err => {
+      req.flash('error', err.message);
+      res.redirect('/spots');
+    });
 };
 
 module.exports.updateSpot = (req, res, id) => {
@@ -46,21 +59,31 @@ module.exports.updateSpot = (req, res, id) => {
     wasUpdated: true
   })
     .exec()
-    .then(() => {
+    .then(spot => {
+      if (!spot) {
+        req.flash('error', 'The spot you are looking for does not exist.');
+        return res.redirect('back');
+      }
       res.redirect(`/spots/${id}`);
     })
     .catch(err => {
-      console.log(err);
+      req.flash('error', err.message);
+      res.redirect('/spots');
     });
 };
 
-module.exports.deleteSpot = (res, id) => {
+module.exports.deleteSpot = (req, res, id) => {
   Spots.findByIdAndRemove(id)
     .exec()
-    .then(() => {
+    .then(spot => {
+      if (!spot) {
+        req.flash('error', 'The spot you are looking for does not exist.');
+        return res.redirect('back');
+      }
       res.redirect('/spots');
     })
     .catch(err => {
-      console.log(err);
+      req.flash('error', err.message);
+      res.redirect('/spots');
     });
 };
