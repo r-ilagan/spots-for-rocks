@@ -10,13 +10,12 @@
       <form action="/users/login" method="POST">
         <div class="form-group">
           <label for="username" class="font-weight-bold">Username</label>
-          <input type="text" name="username" class="form-control" minlength="4" maxlength="12" title="Enter a username"
+          <input type="text" name="username" class="form-control" title="Enter a username"
             value="<?= typeof username !== 'undefined' ? username : ''?>">
         </div>
         <div class="form-group">
           <label for="password" class="font-weight-bold">Password</label>
-          <input type="password" name="password" class="form-control" minlength="6" pattern=".{6,}"
-            title="Emter your password">
+          <input type="password" name="password" class="form-control" title="Emter your password">
         </div>
         <input type="submit" value="Sign in" class="btn btn-primary">
       </form>

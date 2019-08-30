@@ -26,17 +26,17 @@ router.post('/', middleware.isLoggedIn, (req, res) => {
     author: author,
     image: image
   };
-  spotsController.createSpot(res, newSpot);
+  spotsController.createSpot(req, res, newSpot);
 });
 
 // Show route
 router.get('/:id', (req, res) => {
-  spotsController.showSpot(res, req.params.id);
+  spotsController.showSpot(req, res, req.params.id);
 });
 
 // Edit route
 router.get('/:id/edit', middleware.checkSpotOwnership, (req, res) => {
-  spotsController.editSpot(res, req.params.id);
+  spotsController.editSpot(req, res, req.params.id);
 });
 
 // Update route
@@ -46,7 +46,7 @@ router.put('/:id', middleware.checkSpotOwnership, (req, res) => {
 
 // Delete route
 router.delete('/:id', middleware.checkSpotOwnership, (req, res) => {
-  spotsController.deleteSpot(res, req.params.id);
+  spotsController.deleteSpot(req, res, req.params.id);
 });
 
 module.exports = router;
