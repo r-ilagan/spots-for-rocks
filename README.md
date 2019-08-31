@@ -21,6 +21,7 @@ Lastly, I am also using Bootstrap 4 and EJS to style the site.
 - :ballot_box_with_check: Implement https
 - :ballot_box_with_check: Comments
 - :ballot_box_with_check: Dynamic date on comments and Submissions
+- :ballot_box_with_check: Flash Errors
 - :black_square_button: Add Places to Visit
 - :black_square_button: Verifiable Accounts
 - :black_square_button: Likes/Dislikes (Ratings)
@@ -28,7 +29,6 @@ Lastly, I am also using Bootstrap 4 and EJS to style the site.
 - :black_square_button: User Profile and Settings
 - :black_square_button: Gallery for pictures
 - :black_square_button: Popup Login
-- :black_square_button: Flash Errors
 
 ## Pages
 
