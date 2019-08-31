@@ -1,3 +1,4 @@
+/* eslint-disable consistent-return */
 const Spots = require('../models/spots');
 
 module.exports.findAllSpots = (req, res) => {
