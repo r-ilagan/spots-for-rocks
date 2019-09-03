@@ -3,6 +3,15 @@ const User = require('../models/users');
 
 const userController = {};
 
+function renderError(req, res, errors, email, username, password) {
+  res.render('auth/register', {
+    errors,
+    email,
+    username,
+    password
+  });
+}
+
 userController.validateCred = (email, username, password, password2) => {
   const errors = [];
 
@@ -30,12 +39,7 @@ userController.validateCred = (email, username, password, password2) => {
 
 userController.createUser = (errors, email, username, password, req, res) => {
   if (errors.length > 0) {
-    res.render('auth/register', {
-      errors,
-      email,
-      username,
-      password
-    });
+    renderError(req, res, errors, email, username, password);
   } else {
     // Check if user exists
     User.findOne({ email: email }).then(account => {
@@ -57,24 +61,28 @@ userController.createUser = (errors, email, username, password, req, res) => {
           })
           .catch(err => {
             errors.push({ msg: err.message });
-            res.render('auth/register', {
-              errors,
-              email,
-              username,
-              password
-            });
+            renderError(req, res, errors, email, username, password);
           });
       } else {
         errors.push({ msg: 'Email already exists' });
-        res.render('auth/register', {
-          errors,
-          email,
-          username,
-          password
-        });
+        renderError(req, res, errors, email, username, password);
       }
     });
   }
+};
+
+userController.findProfile = (req, res) => {
+  User.findById(req.params.user_id)
+    .populate('spots')
+    .populate('comments')
+    .exec()
+    .then(user => {
+      res.render('auth/dashboard', { user: user });
+    })
+    .catch(err => {
+      req.flash('error', err.message);
+      res.redirect('back');
+    });
 };
 
 module.exports = userController;
