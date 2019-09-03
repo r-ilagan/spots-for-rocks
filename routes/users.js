@@ -40,6 +40,6 @@ router.get('/logout', (req, res) => {
 });
 
 // Dashboard route
-router.get('/:user_id', (req, res) => res.render('auth/dashboard'));
+router.get('/:user_id', (req, res) => userController.findProfile(req, res));
 
 module.exports = router;
