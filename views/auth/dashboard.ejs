@@ -1,0 +1,53 @@
+<? include ../partials/header ?>
+
+<div class="container">
+  <? include ../partials/messages ?>
+  <div class="row" id="settings">
+    <div class="col-4">
+      <div class="list-group">
+        <a href="#profile" class="list-group-item list-group-item-action show active" role="tablist">Profile</a>
+        <a href="#spots" class="list-group-item list-group-item-action" role="tablist">Spots</a>
+        <a href="#comments" class="list-group-item list-group-item-action" role="tablist">Comments</a>
+        <a href="#security" class="list-group-item list-group-item-action">Security</a>
+      </div>
+    </div>
+    <div class="col-8">
+      <div class="tab-content" id="nav-tabContent">
+        <div class="tab-content list-group-item">
+          <div class="tab-pane active fade show" id="profile" role="tabpanel">
+            <h3 class="font-weight-bold"><?= user.username ?></h3>
+            <p class="text-muted">Registered since: <?= user.createdAt.toDateString() ?></p>
+            <h5>Spots: <?= user.spots.length ?></h5>
+            <h5>Comments: <?= user.comments.length ?> </h5>
+          </div>
+          <div class="tab-pane fade" id="spots" role="tabpanel">
+            <?# if(user.spots.length){ ?>
+            <? user.spots.forEach(spot => { ?>
+            <h3><a href="/spots/<?= spot._id ?>" target="_blank"><?= spot.name ?></a></h3>
+            <p><?= spot.description ?></p>
+            <hr>
+            <? }) ?>
+            <?# }?>
+          </div>
+          <div class="tab-pane fade" id="comments" role="tabpanel">...</div>
+          <div class="tab-pane fade" id="security" role="tabpanel">
+            <form action="">
+              <div class="form-group">
+                <label for="username">Change Username</label>
+                <input type="text" name="username" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="password">Change Password</label>
+                <input type="password" name="password" class="form-control">
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<? include ../partials/footer-contact ?>
+<script src="../scripts/tab.js"></script>
+<? include ../partials/footer-end ?>
