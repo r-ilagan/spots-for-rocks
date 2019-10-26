@@ -1,7 +1,6 @@
 const express = require('express');
 const passport = require('passport');
 const userController = require('../controller/users');
-const middleware = require('../middlewares/index');
 
 const router = express.Router();
 
@@ -39,5 +38,8 @@ router.get('/logout', (req, res) => {
   req.flash('success', 'You have logged out! See you again.');
   res.redirect('/users/login');
 });
+
+// Dashboard route
+router.get('/:user_id', (req, res) => userController.findProfile(req, res));
 
 module.exports = router;

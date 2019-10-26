@@ -162,3 +162,9 @@ textarea {
 #register-icon {
   color: #0269a4;
 }
+
+/* User dashboard */
+
+#settings {
+  margin-top: 3rem;
+}

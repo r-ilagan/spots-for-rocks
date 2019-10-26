@@ -1,4 +1,6 @@
+/* eslint-disable consistent-return */
 const Spots = require('../models/spots');
+const User = require('../models/users');
 
 module.exports.findAllSpots = (req, res) => {
   Spots.find({})
@@ -12,15 +14,26 @@ module.exports.findAllSpots = (req, res) => {
 };
 
 module.exports.createSpot = (req, res, newSpot) => {
-  Spots.create(newSpot)
-    .then(() => {
-      req.flash('success', 'New Spot created successfully.');
-      res.redirect('/spots');
-    })
-    .catch(err => {
-      req.flash('error', err.message);
-      res.redirect('/spots');
-    });
+  User.findById(req.user._id).then(user => {
+    Spots.create(newSpot)
+      .then(newlyCreatedSpot => {
+        user.spots.push(newlyCreatedSpot);
+        user
+          .save()
+          .then(() => {
+            req.flash('success', 'New Spot created successfully.');
+            res.redirect('/spots');
+          })
+          .catch(err => {
+            req.flash('error', err.message);
+            res.redirect('/spots');
+          });
+      })
+      .catch(err => {
+        req.flash('error', err.message);
+        res.redirect('/spots');
+      });
+  });
 };
 
 module.exports.showSpot = (req, res, id) => {
